@@ -2,22 +2,25 @@ pluginManagement {
     repositories {
         google {
             content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
+                includeGroupByRegex("com\\.android.*")   // Inclui grupos do Android
+                includeGroupByRegex("com\\.google.*")    // Inclui grupos do Google
+                includeGroupByRegex("androidx.*")        // Inclui grupos do AndroidX
+                includeGroup("com.google.mlkit")         // Inclui dependências do ML Kit
+                includeGroup("com.google.guava")         // Inclui dependências do Guava
             }
         }
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
+        mavenCentral()           // Repositório Maven Central
+        gradlePluginPortal()     // Portal de Plugins do Gradle
     }
 }
 
-rootProject.name = "trcam"
-include(":app")
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()                 // Repositório Google
+        mavenCentral()           // Repositório Maven Central
+    }
+}
+
+rootProject.name = "trcam"       // Nome do projeto raiz
+include(":app")                 // Inclui o módulo app
